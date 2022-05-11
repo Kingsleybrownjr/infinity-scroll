@@ -4,7 +4,7 @@ const loader = document.getElementById('loader');
 let imagesReady = false;
 let imagesLoaded = 0;
 let totalImages = 0;
-let amountOfPhotos = 5;
+let amountOfPhotosToLoad = 5;
 let arrayOfPhotos = [];
 
 // Check if all images were loaded
@@ -13,7 +13,7 @@ const imageLoaded = () => {
 	if (imagesLoaded === totalImages) {
 		imagesReady = true;
 		loader.hidden = true;
-		amountOfPhotos = 15;
+		amountOfPhotosToLoad = 15;
 	}
 };
 
@@ -56,7 +56,7 @@ const displayPhotos = () => {
 // Get photos from Unsplash API
 const getPhotos = async () => {
 	const APIKEY = 'Qss3Sttkn129Lmlq1SryAa4-UdQg2Siti7wYArlB0xc';
-	const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${APIKEY}&count=${amountOfPhotos}`;
+	const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${APIKEY}&count=${amountOfPhotosToLoad}`;
 
 	try {
 		const response = await fetch(apiUrl);
